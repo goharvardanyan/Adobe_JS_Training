@@ -35,25 +35,27 @@ function check(number) {
 
 function AllNumbersAreOdd(number) {
     if ((number % 10) % 2 !== 0) {
-        if (Math.floor(number / 10) >= 1) {
-            return AllNumbersAreOdd(Math.floor(number / 10));
+        if (Math.floor(Math.abs(number / 10)) >= 1) {
+            return AllNumbersAreOdd(Math.floor(Math.abs(number / 10)));
         }
         return true;
     }
     return false;
 }
 
+
 // Problem 4
-function minPositiveNumber(array, minPosNumber = +Infinity) {
+function minPositiveNumber(array, minPosNumber = +Infinity, count = 0) {
     if (array.length === 0) {
         if (minPosNumber === +Infinity) {
             return -1;
         }
         return minPosNumber;
     }
-    if (array[0] >= 0 && minPosNumber > array[0]) {
-        minPosNumber = array[0];
+    if (array[count] >= 0 && minPosNumber > array[0]) {
+        minPosNumber = array[count];
     }
+    count++;
     return minPositiveNumber(array.slice(1), minPosNumber);
 }
 
@@ -91,5 +93,6 @@ console.log(findLargerNumbers([10, 25, 16, -5, 30, 15, 24] , 16));
 console.log(foo(99,350));
 
 console.log (AllNumbersAreOdd(1133133));
+console.log(AllNumbersAreOdd(-367));
 
 console.log(minPositiveNumber([56, -9, 87, -23, 0, -105, 55, 1]));
