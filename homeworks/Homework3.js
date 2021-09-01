@@ -72,6 +72,9 @@
 
  console.log(countOfMissingNumbers([3,2,7,6,0,15]));
 
+
+ // Task 6
+
 function subArrays(array, n) {
     let expectedLength = factorial(array.length) / (factorial(n) * factorial(array.length - n));
     let resultArr = [];
